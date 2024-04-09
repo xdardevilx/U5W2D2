@@ -22,23 +22,23 @@ public class BlogPostController {
     }
 
     @GetMapping("/{bloPostId}")
-    private BlogPost getSingleBlogpost(int blogPostId){
+    private BlogPost getSingleBlogpost( @PathVariable int blogPostId){
         return this.blogPostService.getSingleBlogPost(blogPostId);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    private BlogPost saveBlogPost(BlogPost post){
+    private BlogPost saveBlogPost(@RequestBody BlogPost post){
         return this.blogPostService.saveBlogPost(post);
     }
 
     @PutMapping("/{blogPostId}")
-    private BlogPost updateBlogPost(int postId, BlogPost updatePost){
+    private BlogPost updateBlogPost(@PathVariable int postId, @RequestBody BlogPost updatePost){
         return this.blogPostService.updateBlogPost(postId, updatePost);
     }
 
-    @DeleteMapping
-    private void deleteBlogPost(int postId){
+    @DeleteMapping("/{blogPostId}")
+    private void deleteBlogPost(@PathVariable int postId){
         this.blogPostService.deleteBlogPostById(postId);
     }
 
