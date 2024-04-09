@@ -21,7 +21,7 @@ public class BlogPostController {
         return this.blogPostService.getBlogPostList();
     }
 
-    @GetMapping("/{bloPostId}")
+    @GetMapping("/{blogPostId}")
     private BlogPost getSingleBlogpost( @PathVariable int blogPostId){
         return this.blogPostService.getSingleBlogPost(blogPostId);
     }
